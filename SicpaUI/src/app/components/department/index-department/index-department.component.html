@@ -1,0 +1,33 @@
+<div class="col-md-12 container">
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h2 class="d-inline-block align-middle"> Departments</h2>
+        <button class="btn btn-primary" (click)="addDepartment()"> Add</button>
+      </div>
+    </div>
+    <table class="table table-striped table-sm">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Created By</th>
+        <th>Created Date</th>
+        <th>Description</th>
+        <th>Phone</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let department of departments">
+        <td>{{ department.name }} </td>
+        <td>{{ department.created_by }}</td>
+        <td>{{ department.created_date |date:'mediumDate'}}</td>
+        <td>{{ department.description }}</td>
+        <td>{{ department.phone }}</td>
+        <td>
+          <a href="#" [routerLink]="['/department/edit-department/', department.id]" class="btn btn-warning">Edit</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  

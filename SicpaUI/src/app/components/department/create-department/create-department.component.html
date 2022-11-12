@@ -1,0 +1,80 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="d-flex justify-content-between">
+          <h2 class="d-inline-block align-middle"> Add Department</h2>
+          <a href="#" routerLink="/department" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+    <hr>    
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="name">Department Name:</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="description">Department Description:</label>
+        <textarea 
+            formControlName="description"
+            id="description" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['description'].touched && f['description'].invalid" class="alert alert-danger">
+            <div *ngIf="f['description'].errors && f['description'].errors['required']">Description is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="created_by">Created By:</label>
+        <textarea 
+            formControlName="created_by"
+            id="created_by" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['created_by'].touched && f['created_by'].invalid" class="alert alert-danger">
+            <div *ngIf="f['created_by'].errors && f['created_by'].errors['required']">Name modifier is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="age">Enterprise:</label>
+        <select
+            name="id_enterprise"
+            formControlName="id_enterprise"
+            class="form-control"
+            id="id_enterprise" 
+        >
+            <option value="" disabled selected hidden>Choose the enterprise</option>
+            <option *ngFor="let enterprise of enterprises" value="{{enterprise.id}}">{{enterprise.name}}</option>
+        </select>
+        <div *ngIf="f['id_enterprise'].touched && f['id_enterprise'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id_enterprise'].errors && f['id_enterprise'].errors['required']">Enterprise is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <textarea 
+            formControlName="phone"
+            id="phone" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['phone'].touched && f['phone'].invalid" class="alert alert-danger">
+            <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Phone is required.</div>
+        </div>
+      </div>
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>

@@ -1,0 +1,65 @@
+<div class="container">
+    <br>
+    <div class="row">
+      <div class="d-flex justify-content-between">
+        <h2 class="d-inline-block align-middle"> Add Enterprise</h2>
+        <a href="#" routerLink="/enterprise" class="btn btn-primary">Back</a>
+      </div>
+    </div>
+    <hr>    
+    <h2 class="text-center">Add Enterprise</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="name">Enterprise Name:</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="created_by">Created By:</label>
+        <textarea 
+            formControlName="created_by"
+            id="created_by" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['created_by'].touched && f['created_by'].invalid" class="alert alert-danger">
+            <div *ngIf="f['created_by'].errors && f['created_by'].errors['required']">Name modifier is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea 
+            formControlName="address"
+            id="address" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['address'].touched && f['address'].invalid" class="alert alert-danger">
+            <div *ngIf="f['address'].errors && f['address'].errors['required']">Address is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+            <textarea 
+            formControlName="phone"
+            id="phone" 
+            type="number" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['phone'].touched && f['phone'].invalid" class="alert alert-danger">
+            <div *ngIf="f['phone'].errors && f['phone'].errors['required']">Phone is required.</div>
+        </div>
+      </div>
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>

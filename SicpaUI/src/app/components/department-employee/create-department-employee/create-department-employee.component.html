@@ -1,0 +1,57 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="d-flex justify-content-between">
+          <h2 class="d-inline-block align-middle"> Add Department/Employee</h2>
+          <a href="#" routerLink="/employee" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+    <hr>    
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="created_by">Created By:</label>
+        <textarea 
+            formControlName="created_by"
+            id="created_by" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['created_by'].touched && f['created_by'].invalid" class="alert alert-danger">
+            <div *ngIf="f['created_by'].errors && f['created_by'].errors['required']">Name modifier is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="age">Department</label>
+        <select
+            name="id_department"
+            formControlName="id_department"
+            class="form-control"
+            id="id_department" 
+        >
+            <option value="" disabled selected hidden>Choose the enterprise</option>
+            <option *ngFor="let department of departments" value="{{department.id}}">{{department.name}}</option>
+        </select>
+        <div *ngIf="f['id_department'].touched && f['id_department'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id_department'].errors && f['id_department'].errors['required']">Department is required.</div>
+        </div>
+      </div>  
+      <br>
+      <div class="form-group">
+        <label for="age">Employee:</label>
+        <select
+            name="id_employee"
+            formControlName="id_employee"
+            class="form-control"
+            id="id_employee" 
+        >
+            <option value="" disabled selected hidden>Choose the employee</option>
+            <option *ngFor="let employee of employees" value="{{employee.id}}">{{employee.name}}</option>
+        </select>
+        <div *ngIf="f['id_employee'].touched && f['id_employee'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id_employee'].errors && f['id_employee'].errors['required']">Employee is required.</div>
+        </div>
+      </div>  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>

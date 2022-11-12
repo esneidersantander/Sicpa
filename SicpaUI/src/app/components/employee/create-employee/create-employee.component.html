@@ -1,0 +1,90 @@
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="d-flex justify-content-between">
+          <h2 class="d-inline-block align-middle"> Add Employee</h2>
+          <a href="#" routerLink="/employee" class="btn btn-primary">Back</a>
+        </div>
+      </div>
+    <hr>    
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="name">Employee Name:</label>
+        <input 
+            formControlName="name"
+            id="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+            <div *ngIf="f['name'].errors && f['name'].errors['required']">Name is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="surname">Employee Surname:</label>
+        <textarea 
+            formControlName="surname"
+            id="surname" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['surname'].touched && f['surname'].invalid" class="alert alert-danger">
+            <div *ngIf="f['surname'].errors && f['surname'].errors['required']">Surname is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="created_by">Created By:</label>
+        <textarea 
+            formControlName="created_by"
+            id="created_by" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['created_by'].touched && f['created_by'].invalid" class="alert alert-danger">
+            <div *ngIf="f['created_by'].errors && f['created_by'].errors['required']">Name modifier is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <textarea 
+            formControlName="age"
+            id="age" 
+            type="number" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['age'].touched && f['age'].invalid" class="alert alert-danger">
+            <div *ngIf="f['age'].errors && f['age'].errors['required']">Age is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <textarea 
+            formControlName="email"
+            id="email" 
+            type="email" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+        </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="position">Position:</label>
+        <textarea 
+            formControlName="position"
+            id="position" 
+            type="text" 
+            class="form-control">
+        </textarea>
+        <div *ngIf="f['position'].touched && f['position'].invalid" class="alert alert-danger">
+            <div *ngIf="f['position'].errors && f['position'].errors['required']">Position is required.</div>
+        </div>
+      </div>
+  
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>
